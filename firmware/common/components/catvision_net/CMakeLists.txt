@@ -1,0 +1,1 @@
+idf_component_register(SRCS "catvision_net.c" "catvision_resolve.c" "catvision_http_session.c" "catvision_live_stream.c" "catvision_live_channel.c" INCLUDE_DIRS "include" REQUIRES esp_http_client esp_wifi esp_netif esp_event esp_timer mdns)

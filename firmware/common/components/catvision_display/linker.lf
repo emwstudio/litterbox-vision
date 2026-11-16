@@ -1,0 +1,8 @@
+[mapping:catvision_zlib_iram]
+archive: libz.a
+entries:
+    inflate (noflash)
+    inffast (noflash)
+    inftrees (noflash)
+    adler32 (noflash)
+    uncompr (noflash)

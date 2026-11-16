@@ -1,0 +1,83 @@
+{
+  "frame_width": 800,
+  "frame_height": 600,
+  "rotation": 0,
+  "boxes": [
+    {
+      "id": "box-1",
+      "name": "猫砂盆 1（开放）",
+      "kind": "open",
+      "color": "#FF6B6B",
+      "bounds": {
+        "x": 0.035,
+        "y": 0.375,
+        "width": 0.26,
+        "height": 0.285
+      },
+      "entry": null,
+      "exit_top": null
+    },
+    {
+      "id": "box-2",
+      "name": "猫砂盆 2（开放）",
+      "kind": "open",
+      "color": "#4ECDC4",
+      "bounds": {
+        "x": 0.26,
+        "y": 0.4,
+        "width": 0.235,
+        "height": 0.3
+      },
+      "entry": null,
+      "exit_top": null
+    },
+    {
+      "id": "box-3",
+      "name": "猫砂盆 3（带盖）",
+      "kind": "covered",
+      "color": "#FFD166",
+      "bounds": {
+        "x": 0.485,
+        "y": 0.29,
+        "width": 0.255,
+        "height": 0.445
+      },
+      "entry": {
+        "x": 0.54,
+        "y": 0.68,
+        "width": 0.08,
+        "height": 0.055
+      },
+      "exit_top": {
+        "x": 0.525,
+        "y": 0.305,
+        "width": 0.12,
+        "height": 0.065
+      }
+    },
+    {
+      "id": "box-4",
+      "name": "猫砂盆 4（带盖）",
+      "kind": "covered",
+      "color": "#A78BFA",
+      "bounds": {
+        "x": 0.675,
+        "y": 0.29,
+        "width": 0.29,
+        "height": 0.445
+      },
+      "entry": {
+        "x": 0.7725,
+        "y": 0.68,
+        "width": 0.065,
+        "height": 0.055
+      },
+      "exit_top": {
+        "x": 0.73,
+        "y": 0.305,
+        "width": 0.125,
+        "height": 0.065
+      }
+    }
+  ]
+}

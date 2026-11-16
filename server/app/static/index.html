@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>猫房监控 | CatVision</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到主要内容</a>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">CATVISION · LOCAL HUB</p>
+      <h1>猫房监控</h1>
+      <p>四只猫、四个猫砂盆、每一次日常都有迹可循。</p>
+    </div>
+    <div id="connection" class="status-pill" role="status">正在连接</div>
+  </header>
+
+  <main id="content">
+    <section class="hero-grid" aria-labelledby="live-title">
+      <div class="panel video-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LIVE</p>
+            <h2 id="live-title">猫房实时画面</h2>
+          </div>
+          <span id="frame-age">暂无画面</span>
+        </div>
+        <img id="live-frame" class="live-frame" width="1280" height="720" alt="猫房摄像头实时画面" hidden>
+        <p id="live-placeholder" class="empty-state">摄像头尚未配置或离线。</p>
+      </div>
+      <aside class="panel" aria-labelledby="layout-title">
+        <p class="eyebrow">REGIONS</p>
+        <h2 id="layout-title">识别区域</h2>
+        <ul id="layout-list" class="region-list"></ul>
+        <p class="hint">1.75 寸屏仅显示原始 LIVE 实拍画面；2.16 寸屏上半部为填满的 LIVE，下半部为四猫统计。识别区域不在触摸屏上编辑。</p>
+      </aside>
+    </section>
+
+    <section class="panel" aria-labelledby="stats-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TODAY</p>
+          <h2 id="stats-title">猫咪日报</h2>
+        </div>
+        <div class="field date-field">
+          <label for="selected-date">统计日期</label>
+          <input id="selected-date" name="date" type="date">
+        </div>
+      </div>
+      <ul id="cat-stats" class="cat-grid" role="list"></ul>
+      <p id="stats-summary" class="hint"></p>
+    </section>
+
+    <section class="panel" aria-labelledby="enroll-title">
+      <p class="eyebrow">PROFILES</p>
+      <h2 id="enroll-title">登记猫咪</h2>
+      <p class="hint">清晰的正脸、侧身和不同光线照片有助于区分花色相近的猫。</p>
+      <form id="cat-form" action="/api/cats" method="post" enctype="multipart/form-data">
+        <fieldset class="form-grid">
+          <legend class="visually-hidden">猫咪身份资料</legend>
+          <div class="field">
+            <label for="cat-name">猫咪名字</label>
+            <input id="cat-name" name="name" type="text" required maxlength="40" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="cat-avatar">展示头像</label>
+            <input id="cat-avatar" name="avatar" type="file" required accept="image/*" aria-describedby="avatar-hint">
+            <span id="avatar-hint" class="hint">单张清晰图片，最大 10 MiB。</span>
+          </div>
+          <div class="field">
+            <label for="cat-references">识别参考图</label>
+            <input id="cat-references" name="references" type="file" required multiple accept="image/*" aria-describedby="references-hint">
+            <span id="references-hint" class="hint">一次选择 5–10 张图片。</span>
+          </div>
+          <button type="submit" class="primary-button">保存猫咪资料</button>
+        </fieldset>
+        <p id="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="panel" aria-labelledby="events-title">
+      <p class="eyebrow">EVENTS</p>
+      <h2 id="events-title">当日事件与录像</h2>
+      <div class="table-wrap" tabindex="0">
+        <table>
+          <caption>按事件开始时间倒序排列</caption>
+          <thead><tr><th scope="col">开始时间</th><th scope="col">猫砂盆</th><th scope="col">状态</th><th scope="col">置信度</th><th scope="col">录像</th></tr></thead>
+          <tbody id="event-list"></tbody>
+        </table>
+      </div>
+      <p id="events-empty" class="empty-state">当天还没有事件。</p>
+    </section>
+  </main>
+
+  <dialog id="video-dialog" aria-labelledby="video-title">
+    <h2 id="video-title">事件录像</h2>
+    <p id="video-description">包含该次如厕事件事前与事后的画面；录像无音轨。</p>
+    <video id="event-video" controls width="1280" height="720"></video>
+    <form method="dialog"><button type="submit">关闭录像</button></form>
+  </dialog>
+</body>
+</html>

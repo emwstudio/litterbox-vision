@@ -1,0 +1,1 @@
+idf_component_register(SRCS "catvision_ui.c" "lv_font_catvision_16.c" "lv_font_card_16.c" "lv_font_card_16_bold.c" "lv_font_card_24_bold.c" "lv_font_card_22_bold.c" "lv_font_poop_16.c" INCLUDE_DIRS "include" REQUIRES lvgl)

@@ -1,0 +1,23 @@
+menu "CatVision Camera"
+    config CATVISION_UDP_HOST
+        string "UDP hub IPv4 address or .local hostname"
+        default ""
+    config CATVISION_UDP_PORT
+        int "UDP hub port"
+        default 5060
+        range 1 65535
+    config CATVISION_AUDIO_ENABLED
+        bool "Capture microphone audio"
+        default y
+    config CATVISION_AUDIO_UDP_PORT
+        int "UDP audio hub port"
+        default 5061
+        range 1 65535
+    config CATVISION_OTA_SERVER_PORT
+        int "OTA hub HTTP port"
+        default 8000
+        range 1 65535
+    config CATVISION_OTA_SELF_TEST_FAILURE
+        bool "Force OTA startup self-test failure (diagnostic only)"
+        default n
+endmenu

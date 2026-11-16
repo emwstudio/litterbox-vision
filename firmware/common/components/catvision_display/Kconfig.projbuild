@@ -1,0 +1,19 @@
+menu "CatVision Display"
+    config CATVISION_LCD_PCLK_HZ
+        int "LCD QSPI pixel clock in Hz"
+        default 80000000
+        range 40000000 80000000
+        help
+            Pixel clock used by the CO5300 QSPI panels. The previous default was 40 MHz.
+    config CATVISION_LVGL_TASK_PRIORITY
+        int "LVGL task priority"
+        default 6
+        range 1 6
+        help
+            Allow controlled display scheduling comparisons; the adapter default is 6.
+    config CATVISION_TOUCH_ENABLED
+        bool "Initialize touch input"
+        default y
+        help
+            Disable for display-only firmware that does not use touch input.
+endmenu

@@ -1,0 +1,18 @@
+menu "CatVision Network"
+    config CATVISION_WIFI_SSID
+        string "Wi-Fi SSID"
+        default ""
+    config CATVISION_WIFI_PASSWORD
+        string "Wi-Fi password"
+        default ""
+    config CATVISION_SERVER_URL
+        string "Computer hub base URL"
+        default "http://192.168.1.100:8000"
+    config CATVISION_DEVICE_TOKEN
+        string "Shared LAN device token"
+        default ""
+    config CATVISION_RAW_STREAM_PORT
+        int "Acknowledged live stream TCP port"
+        default 8001
+        range 1024 65535
+endmenu

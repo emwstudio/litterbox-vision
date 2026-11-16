@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.16)
+set(EXTRA_COMPONENT_DIRS "${CMAKE_CURRENT_LIST_DIR}/../common/components")
+set(CATVISION_BSP "waveshare__esp32_s3_touch_amoled_1_75" CACHE INTERNAL "CatVision board BSP")
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+project(catvision_monitor_1p75)

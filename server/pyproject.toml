@@ -1,0 +1,18 @@
+[project]
+name = "catvision-server"
+version = "0.1.0"
+description = "Local computer hub for the CatVision ESP32-S3 cat-room monitor"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "httpx[socks]>=0.27,<1",
+  "numpy>=2,<3",
+  "opencv-python-headless>=4.10,<5",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.6,<3",
+  "python-multipart>=0.0.12,<1",
+  "uvicorn[standard]>=0.30,<1",
+]
+
+[dependency-groups]
+dev = []
